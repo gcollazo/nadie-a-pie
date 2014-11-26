@@ -1,0 +1,21 @@
+<form {{action "createMessage" on="submit"}}>
+    <p>
+        <label for="from">Esperando en</label><br>
+        {{input type="text" value=from id="from"}}
+        <div class="help-text">¿Donde estas esperando por transporte?</div>
+    </p>
+
+    <p>
+        <label for="to">Destino</label><br>
+        {{input type="text" value=to id="to"}}
+        <div class="help-text">¿Donde tienes que llegar?</div>
+    </p>
+
+    <p>
+        <label for="passengers"># de Pasajeros</label><br>
+        {{input type="text" value=passengers id="passengers"}}
+        <div class="help-text">¿Cuantos pasajeros van al mismo lugar?</div>
+    </p>
+
+    <p><button type="submit">Solicitar</button> {{link-to "Cancelar" "messages.index" class="cancel"}}</p>
+</form>

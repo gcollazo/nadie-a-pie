@@ -6,6 +6,10 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource('messages', { path: '/' }, function() {
+    this.route('index', { path: '/' });
+    this.route('new');
+  });
 });
 
 export default Router;

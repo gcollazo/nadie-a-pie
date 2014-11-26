@@ -1,0 +1,42 @@
+<p>{{link-to "Solicitar Recogido" "messages.new" class="btn"}}</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Pasajeros Esperando</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each message in controller}}
+            {{#if message.isWaiting}}
+                <tr>
+                    <td>
+                        <strong>{{message.from}} → {{message.to}}</strong><br>
+                        {{message.passengers}} pasajero(s) esperando {{ago message.created}}<br><br>
+                        <button {{action "pickup" message}}>Recogido</button> <a href="#" {{action "cancel" message}} class="cancel">Cancelar</a>
+                    </td>
+                </tr>
+            {{/if}}
+        {{/each}}
+    </tbody>
+</table>
+
+<table>
+    <thead>
+        <tr>
+            <th>Pasajeros Recogidos</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each message in controller}}
+            {{#unless message.isWaiting}}
+                <tr>
+                    <td>
+                        <strong>{{message.from}} → {{message.to}}</strong><br>
+                        Pasajeros: {{message.passengers}}<br>
+                    </td>
+                </tr>
+            {{/unless}}
+        {{/each}}
+    </tbody>
+</table>
