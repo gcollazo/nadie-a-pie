@@ -65,3 +65,8 @@ input {
 button {
     width: 100%;
 }
+
+.loading {
+    text-align: center;
+    width: 100%;
+}
